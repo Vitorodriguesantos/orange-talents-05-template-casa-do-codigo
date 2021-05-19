@@ -23,13 +23,12 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
 	
-	@Autowired
-	private ProibeCategoriaDuplicada proibeCategoriaDuplicada;
-	
-	@InitBinder
-	public void init(WebDataBinder binder) {
-		binder.addValidators(proibeCategoriaDuplicada);
-	}
+	/*
+	 * @Autowired private ProibeCategoriaDuplicada proibeCategoriaDuplicada;
+	 * 
+	 * @InitBinder public void init(WebDataBinder binder) {
+	 * binder.addValidators(proibeCategoriaDuplicada); }
+	 */
 	
 	@PostMapping
 	@Transactional

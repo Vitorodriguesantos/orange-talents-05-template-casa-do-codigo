@@ -32,7 +32,7 @@ public class ProibeCategoriaDuplicada implements Validator{
 		Optional<Categoria> possivelCategoria =  categoriaRepository.findByNome(request.getNome());
 		System.out.println("CATEGORIA: "+request.getNome());
 		if(possivelCategoria.isPresent()) {
-			errors.rejectValue("categoria", null, "Já existe uma categoria "+request.getNome()+" cadastrada.");
+			errors.rejectValue("categoria", null, "Já existe uma categoria cadastrada com esse nome: "+request.getNome());
 		}
 		
 	}
