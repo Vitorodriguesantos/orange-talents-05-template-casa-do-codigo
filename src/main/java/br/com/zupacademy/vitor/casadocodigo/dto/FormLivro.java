@@ -6,7 +6,6 @@ import java.util.Optional;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -30,7 +29,7 @@ public class FormLivro {
 	@Min(value = 20)
 	private double preco;
 	@NotNull
-	@Min(value = 20)
+	@Min(value = 100)
 	private Integer numPag;
 	@NotBlank
 	@UniqueValue(classeDominio = Livro.class,nomeCampo = "Isbn")
@@ -38,11 +37,9 @@ public class FormLivro {
 	@Future
 	private LocalDate dataPublicacao;
 	@NotNull
-	@NotEmpty
-	private String autor;
+	private Long autor;
 	@NotNull
-	@NotEmpty
-	private String categoria;
+	private Long categoria;
 	
 	public String getTitulo() {
 		return titulo;
@@ -65,10 +62,10 @@ public class FormLivro {
 	public LocalDate getDataPublicacao() {
 		return dataPublicacao;
 	}
-	public String getAutor() {
+	public Long getAutor() {
 		return autor;
 	}
-	public String getCategoria() {
+	public Long getCategoria() {
 		return categoria;
 	}
 	
@@ -93,17 +90,17 @@ public class FormLivro {
 	public void setDataPublicacao(LocalDate dataPublicacao) {
 		this.dataPublicacao = dataPublicacao;
 	}
-	public void setAutor(String autor) {
+	public void setAutor(Long autor) {
 		this.autor = autor;
 	}
-	public void setCategoria(String categoria) {
+	public void setCategoria(Long categoria) {
 		this.categoria = categoria;
 	}
 	
 	public Livro converter(AutorRepository autorRepository, CategoriaRepository categoriaRepository) {
-		Autor possivelAutor = autorRepository.findByNome(autor);
-		Categoria possivelCategoria = categoriaRepository.findByNome(categoria);
-		return new Livro(titulo, resumo, sumario, preco, numPag, Isbn, dataPublicacao, possivelAutor,possivelCategoria);
+		Optional<Autor> possivelAutor = autorRepository.findById(autor);
+		Optional<Categoria> possivelCategoria = categoriaRepository.findById(categoria);
+		return new Livro(titulo, resumo, sumario, preco, numPag, Isbn, dataPublicacao, possivelAutor.get(),possivelCategoria.get());
 		}
 	
 	
