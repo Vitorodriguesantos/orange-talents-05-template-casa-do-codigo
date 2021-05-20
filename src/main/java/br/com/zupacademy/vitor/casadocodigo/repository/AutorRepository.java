@@ -11,6 +11,8 @@ import br.com.zupacademy.vitor.casadocodigo.modelo.Autor;
 public interface AutorRepository extends JpaRepository<Autor, Long>{
 
 	Optional<Autor> findByEmail(String email);
+
+	Autor findByNome(String autor);
 	
 
 }

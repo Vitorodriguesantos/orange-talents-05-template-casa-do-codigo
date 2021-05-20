@@ -28,4 +28,8 @@ public class Categoria {
 		return "{id: "+id+", nome: "+nome+"}"; 
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
 }

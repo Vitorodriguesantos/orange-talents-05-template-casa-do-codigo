@@ -15,7 +15,7 @@ import javax.validation.Payload;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface UniqueValue {
 	
-	String message() default "{com.deveficiente.beanvalidation.uniquevalue}";
+	String message() default "Tentativa de registro duplicados";
 	Class<?>[] groups() default {};
 	Class<? extends Payload>[] payload() default {};
 	

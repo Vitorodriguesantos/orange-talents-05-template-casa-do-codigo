@@ -31,7 +31,12 @@ public class Autor {
 	public Autor() {
 		
 	}
-	
+
+
+	public String getNome() {
+		return nome;
+	}
+
 	public Autor(String nome, String email, String descricao) {
 		
 		super();
