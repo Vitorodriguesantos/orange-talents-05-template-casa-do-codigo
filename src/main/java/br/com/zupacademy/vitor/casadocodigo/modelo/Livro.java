@@ -40,6 +40,38 @@ public class Livro {
 	@NotNull
 	@ManyToOne
 	private Autor autor;
+	public String getResumo() {
+		return resumo;
+	}
+
+	public String getSumario() {
+		return sumario;
+	}
+
+	public double getPreco() {
+		return preco;
+	}
+
+	public Integer getNumPag() {
+		return numPag;
+	}
+
+	public String getIsbn() {
+		return Isbn;
+	}
+
+	public LocalDate getDataPublicacao() {
+		return dataPublicacao;
+	}
+
+	public Autor getAutor() {
+		return autor;
+	}
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
 	@NotNull
 	@ManyToOne
 	private Categoria categoria;
