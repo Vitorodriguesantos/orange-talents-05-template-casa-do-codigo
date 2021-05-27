@@ -32,7 +32,7 @@ public class Cliente {
 	@NotNull
 	@ManyToOne
 	private Pais pais;
-	@ManyToOne
+	@ManyToOne(optional = true)
 	private Estado estado;
 	@NotBlank
 	private String telefone;
